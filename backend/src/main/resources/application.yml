@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/mams-db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  servlet:
+    session:
+      timeout: 12h
+      cookie:
+        same-site: lax
+
+# origins allowed to call the API with credentials (for the hosted frontend)
+app:
+  cors:
+    allowed-origins: http://localhost:5173
+  seed-on-empty-db: true
+
+logging:
+  level:
+    root: warn
+    com.mams: info
